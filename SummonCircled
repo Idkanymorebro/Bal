@@ -1,0 +1,25 @@
+-- Check if the SummoningCircle model exists in the workspace
+local summoningCircle = workspace:FindFirstChild("SummoningCircle")
+
+-- Get the player's PlayerGui
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Create a ScreenGui to display the notification
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "SummoningCircleNotification"
+screenGui.Parent = playerGui
+
+-- Create a TextLabel to display the notification message
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "SummoningCircle: " .. tostring(summoningCircle and "True" or "False")
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, -100, 0, 20)
+textLabel.BackgroundTransparency = 0.5
+textLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Parent = screenGui
+
+-- Destroy the ScreenGui after a few seconds (adjust the delay as needed)
+wait(3)
+screenGui:Destroy()

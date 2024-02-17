@@ -1,0 +1,36 @@
+-- Get the player's PlayerGui
+local player = game.Players.LocalPlayer
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- Create a ScreenGui to display the notification
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "FingerprintsNotification"
+screenGui.Parent = playerGui
+
+-- Function to check if the "Prints" file exists within the Map model
+local function checkPrints()
+    -- Check if the Map model exists in the Workspace
+    local map = workspace:FindFirstChild("Map")
+    if map then
+        -- Check if the "Prints" file exists within the Map model
+        local printsFile = map:FindFirstChild("Prints")
+        if printsFile then
+            return true
+        end
+    end
+    return false
+end
+
+-- Create a TextLabel to display the notification message
+local textLabel = Instance.new("TextLabel")
+textLabel.Text = "Fingerprints: " .. tostring(checkPrints())
+textLabel.Size = UDim2.new(0, 200, 0, 50)
+textLabel.Position = UDim2.new(0.5, -100, 0, 20)
+textLabel.BackgroundTransparency = 0.5
+textLabel.BackgroundColor3 = Color3.new(0, 0, 0)
+textLabel.TextColor3 = Color3.new(1, 1, 1)
+textLabel.Parent = screenGui
+
+-- Destroy the ScreenGui after a few seconds (adjust the delay as needed)
+wait(3)
+screenGui:Destroy()

@@ -2,12 +2,16 @@ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHept
 local Window = Library.CreateLib("Blair", "DarkTheme")
 
 -- Tabs
-local Tab1 = Window:NewTab("Nuh Uh")
+local Tab1 = Window:NewTab("Checking")
 
 
 -- Section 1
-local Section1 = Tab1:NewSection("Eh?")
+local Section1 = Tab1:NewSection("Check stuff")
 
 Tab1Section1:NewButton("summoning circle", "ButtonInfo", function()
-    loadstring(game:HttpGet(""))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Idkanymorebro/Bal/main/SummonCircled"))()
+end)
+
+Tab1Section1:NewButton("Fingerprints", "ButtonInfo", function()
+    print("Clicked")
 end)
